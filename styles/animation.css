@@ -1,0 +1,22 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes slide-in {
+  0% {
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  100% {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+  }
+}
+
+/*# sourceMappingURL=animation.css.map */

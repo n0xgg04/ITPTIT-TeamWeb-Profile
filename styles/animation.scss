@@ -1,0 +1,82 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin rotate-animation($duration, $timing-function, $iteration-count) {
+  animation: rotate $duration $timing-function $iteration-count;
+}
+
+@keyframes slide-in {
+  0% {
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  100% {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+  }
+}
+
+@mixin slide-in-animation($duration, $timing-function, $iteration-count) {
+  animation: slide-in $duration $timing-function $iteration-count;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+
+@keyframes fade-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframe top-to-bottom {
+
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fall-in {
+  from {
+    opacity: 0;
+    transform: translateY(0%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.scrolled {
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
