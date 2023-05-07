@@ -5,7 +5,7 @@
 
 
 body {
-  background: url(/assets/images/bg.jpg) no-repeat center center fixed;
+  background: url("../assets/images/bg.jpg") no-repeat center center fixed;
   font-family: $nav-text-font;
 }
 
@@ -108,7 +108,7 @@ nav {
 }
 
 .icon-arrow-down {
-  background: url('/assets/images/icon-arrow-down.svg');
+  background: url('../assets/images/icon-arrow-down.svg');
   height: 30px;
   width: auto;
   display: inline-block;
@@ -208,7 +208,7 @@ nav {
 
 
     .about-me_image-box {
-      background: url(/assets/images/avt.png) no-repeat center center;
+      background: url("../assets/images/avt.png") no-repeat center center;
       border-radius: 20px;
       width: 400px;
       height: 500px;
