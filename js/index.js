@@ -14,14 +14,13 @@ navLinks.forEach(link => {
     });
 });
 
-const elements = document.querySelectorAll('.fall-in-box');
 
 function checkFadeIn() {
+    let elements = document.querySelectorAll('.with-fall-in-animation');
     elements.forEach(element => {
         if (isElementInViewport(element)) {
-            element.classList.add('fall-in');
-            let navButton = document.getElementById(element.id + "-button")
-            navButton.classList.add('nav-actived')
+            element.classList.add('fall-in-box');
+            console.log(element)
         }
     });
 }
@@ -33,7 +32,7 @@ function isElementInViewport(el) {
     return (
         rect.top >= 0 &&
         rect.left >= 0 &&
-        rect.bottom - 20 <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.bottom - 120 <= (window.innerHeight || document.documentElement.clientHeight) &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 }

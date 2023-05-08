@@ -287,11 +287,9 @@ input[type=checkbox], input[type=radio] {
 @keyframes fall-in {
   from {
     opacity: 0;
-    transform: translateY(0%);
   }
   to {
     opacity: 1;
-    transform: translateY(0%);
   }
 }
 .scrolled {
@@ -299,6 +297,34 @@ input[type=checkbox], input[type=radio] {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+@keyframes button-animation {
+  0% {
+    transform: rotate(-45deg) translateY(40%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-45deg) translateY(0%);
+  }
+}
+@keyframes from-bot-to-top {
+  0% {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes zoomX {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
 body {
   background: url("../assets/images/bg.jpg") no-repeat center center fixed;
   font-family: "Poppins", sans-serif;
@@ -351,7 +377,7 @@ nav .nav-container_menu ul li a:hover, nav .nav-container_menu ul li a .nav-acti
   place-items: center;
 }
 .main-page .main-page_box {
-  opacity: 0;
+  box-sizing: border-box;
   animation: fall-in 1s ease-in forwards;
 }
 .main-page .main-page_box--title {
@@ -397,8 +423,9 @@ nav .nav-container_menu ul li a:hover, nav .nav-container_menu ul li a .nav-acti
 
 .main-page_scrollButton {
   display: inline-block;
-  position: absolute;
-  bottom: 150px;
+  position: relative;
+  top: 100px;
+  left: 50%;
   border: transparent solid;
   transform: rotate(45deg);
   width: 40px;
@@ -411,12 +438,11 @@ nav .nav-container_menu ul li a:hover, nav .nav-container_menu ul li a .nav-acti
 }
 
 .bx-chevrons-down {
-  transform: rotate(-45deg);
   color: #ffffff;
   font-size: 30px;
   position: relative;
   top: 5px;
-  left: 4px;
+  animation: button-animation 1s ease infinite;
 }
 
 .main-color {
@@ -430,13 +456,9 @@ nav .nav-container_menu ul li a:hover, nav .nav-container_menu ul li a .nav-acti
 .about-me {
   font-family: "Poppins", Arial, sans-serif;
 }
-.about-me .fall-in {
-  animation: fade-in-right 1s ease forwards;
-}
 .about-me .about-me-box {
   display: flex;
   flex-direction: row;
-  opacity: 0;
 }
 .about-me .about-me-box .about-me_content .about-me_content--title h2 {
   font-size: 50px;
@@ -556,6 +578,69 @@ nav .nav-container_menu ul li a:hover, nav .nav-container_menu ul li a .nav-acti
 
 .hidden-element {
   display: none !important;
+}
+
+.with-fall-in-animation {
+  opacity: 0;
+}
+
+.fall-in-box {
+  animation: from-bot-to-top 0.5s ease-in-out forwards;
+}
+
+.messenger-box {
+  background: url("../assets/images/messenger.png") no-repeat center center;
+}
+
+.contact-btn:hover {
+  animation: zoomX 0.2s ease-in-out forwards;
+}
+
+.messenger-btn {
+  position: fixed;
+  z-index: 1;
+  top: 85%;
+  left: 90%;
+}
+.messenger-btn img {
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.messenger-btn img:hover {
+  animation: zoomX 0.2s ease-in-out forwards;
+}
+
+.skill-page_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.skill-page_container .skill-page_element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  width: 120px;
+  height: 150px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.skill-page_container .skill-page_element:hover {
+  animation: zoomX 0.2s ease-in-out forwards;
+}
+.skill-page_container .skill-page_element img {
+  margin-top: 20px;
+  width: 60%;
+  height: auto;
+  border-radius: 10%;
+}
+.skill-page_container .skill-page_element span {
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */

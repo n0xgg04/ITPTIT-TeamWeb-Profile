@@ -62,7 +62,7 @@ nav {
   place-items: center;
 
   .main-page_box {
-    opacity: 0;
+    box-sizing: border-box;
     animation: fall-in 1s ease-in forwards;
   }
 
@@ -117,8 +117,9 @@ nav {
 
 .main-page_scrollButton {
   display: inline-block;
-  position: absolute;
-  bottom: 150px;
+  position: relative;
+  top: 100px;
+  left: 50%;
   border: transparent solid;
   transform: rotate(45deg);
   width: 40px;
@@ -132,13 +133,11 @@ nav {
 }
 
 .bx-chevrons-down {
-  transform: rotate(-45deg);
   color: #ffffff;
   font-size: 30px;
   position: relative;
   top: 5px;
-  left: 4px;
-
+  animation: button-animation 1s ease infinite;
 }
 
 .underline-sec {
@@ -156,14 +155,9 @@ nav {
 .about-me {
   font-family: $_font-family-poppins;
 
-  .fall-in {
-    animation: fade-in-right 1s ease forwards;
-  }
-
   .about-me-box {
     display: flex;
     flex-direction: row;
-    opacity: 0;
 
     .about-me_content {
       .about-me_content--title {
@@ -321,4 +315,75 @@ nav {
 
 .hidden-element {
   display: none !important;
+}
+
+.with-fall-in-animation {
+  opacity: 0;
+}
+
+.fall-in-box {
+  animation: from-bot-to-top 0.5s ease-in-out forwards;
+}
+
+.messenger-box {
+  background: url("../assets/images/messenger.png") no-repeat center center;
+}
+
+.contact-btn {
+  &:hover {
+    animation: zoomX 0.2s ease-in-out forwards;
+  }
+}
+
+.messenger-btn {
+  position: fixed;
+  z-index: 1;
+  top: 85%;
+  left: 90%;
+
+  img {
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: $shadow-default;
+
+    &:hover {
+      animation: zoomX 0.2s ease-in-out forwards;
+    }
+  }
+}
+
+.skill-page_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 25px;
+
+  .skill-page_element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+    width: 120px;
+    height: 150px;
+    box-shadow: $shadow-default;
+
+    &:hover {
+      animation: zoomX 0.2s ease-in-out forwards;
+    }
+
+    img {
+      margin-top: 20px;
+      width: 60%;
+      height: auto;
+      border-radius: 10%;
+    }
+
+    span {
+      font-family: $_font-family-poppins;
+      font-weight: bold;
+    }
+  }
 }
