@@ -3,24 +3,28 @@
 @import 'animation';
 @import url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
 
+html {
+  font-size: 20px;
+}
 
 body {
   background: url("../assets/images/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
   font-family: $nav-text-font;
 }
 
-nav {
-  display: flex;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-  justify-content: center;
-  background: transparent;
+//Mixin
+@mixin navTheme() {
+
+  .nav-expand-button {
+    display: none;
+  }
 
   .nav-container {
     width: $navigation-width;
     display: flex;
+    flex-direction: row;
+    grap: 5px;
     padding: 0 15px;
     justify-content: space-between;
   }
@@ -34,6 +38,7 @@ nav {
         font-family: $nav-text-font;
         padding-bottom: 3px;
         border-bottom: 2px solid transparent;
+        font-size: 0.85rem;
 
         &:hover, .nav-actived {
           color: #ff0000;
@@ -51,13 +56,47 @@ nav {
   }
 }
 
+@mixin navForMobile() {
+
+  .navbar-top {
+    height: 70px;
+  }
+
+
+  .nav-container_menu {
+    display: none;
+  }
+
+  .nav-expand-button {
+    display: flex;
+    align-items: center;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+
+}
+
+nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  min-height: 70px;
+  z-index: 1;
+  width: 100%;
+  justify-content: center;
+  background: transparent;
+  @include navTheme();
+}
+
 .fall-in-animation {
   opacity: 0;
   animation: fall-in 1s ease-in forwards;
 }
 
 .main-page {
-  height: $main-height;
+  min-height: $main-height;
   display: grid;
   place-items: center;
 
@@ -69,7 +108,7 @@ nav {
   .main-page_box--title {
     color: $_main_color;
     font-weight: 800;
-    font-size: 16px;
+    font-size: 0.7rem;
   }
 
   .bold-title {
@@ -78,7 +117,7 @@ nav {
 
   .main-page_box--des {
     color: #000000;
-    font-size: 30px;
+    font-size: 1.5rem;
   }
 
 
@@ -101,7 +140,7 @@ nav {
 
     h1 {
       font-family: $nav-text-font;
-      font-size: 60px;
+      font-size: 3rem;
       margin: 0;
     }
   }
@@ -134,7 +173,7 @@ nav {
 
 .bx-chevrons-down {
   color: #ffffff;
-  font-size: 30px;
+  font-size: 1.5rem;
   position: relative;
   top: 5px;
   animation: button-animation 1s ease infinite;
@@ -158,11 +197,12 @@ nav {
   .about-me-box {
     display: flex;
     flex-direction: row;
+    width: 100%;
 
     .about-me_content {
       .about-me_content--title {
         h2 {
-          font-size: 50px;
+          font-size: 2.5rem;
           font-weight: 800;
           margin: 0;
         }
@@ -172,7 +212,7 @@ nav {
         margin: 25px 0;
 
         span {
-          font-size: 20px;
+          font-size: 1rem;
         }
       }
 
@@ -186,12 +226,12 @@ nav {
             margin-bottom: 15px;
 
             .about-information_content--title {
-              font-size: 20px;
+              font-size: 1rem;
               font-weight: 600;
             }
 
             .about-information_content--subtitle {
-              font-size: 20px;
+              font-size: 1rem;
             }
 
             color: #000000;
@@ -202,11 +242,17 @@ nav {
 
 
     .about-me_image-box {
+      display: grid;
+      place-items: center;
+      margin-left: 20%;
       background: url("../assets/images/avt.png") no-repeat center center;
       border-radius: 20px;
-      width: 400px;
-      height: 500px;
-      margin-right: 250px;
+      width: 30%;
+      height: auto;
+      max-width: 20%;
+      min-width: 100px;
+      max-height: 400px;
+      margin-right: 25%;
       box-shadow: $shadow-default;
     }
   }
@@ -220,12 +266,12 @@ nav {
     display: flex;
     flex-direction: row;
     width: 80%;
-    height: 75%;
+    min-height: 75%;
 
 
     .e-heading {
       color: $_main_color;
-      font-size: 30px;
+      font-size: 1.5rem;
     }
 
     .is_actived {
@@ -243,15 +289,19 @@ nav {
     }
 
     .education-container-row_left {
-      margin-right: 200px;
+      margin-right: 15%;
 
       ul li {
         list-style: none;
-        font-size: 18px;
+        font-size: 0.9rem;
         font-weight: bold;
         position: relative;
         cursor: pointer !important;
         margin-bottom: 10px;
+      }
+
+      ul {
+        padding-inline-start: 0;
       }
 
       ul li + li {
@@ -267,7 +317,7 @@ nav {
       }
 
       .education-page_container {
-        height: $education-element-height;
+        min-height: $education-element-height;
         padding: 0px 30px 0px;
         border-radius: 10px;
         background: #ffffff;
@@ -283,7 +333,7 @@ nav {
           margin-left: 20px;
 
           h4 {
-            font-size: 25px;
+            font-size: 1.25rem;
             font-weight: 600;
             margin: 0;
 
@@ -326,7 +376,6 @@ nav {
 }
 
 .messenger-box {
-  background: url("../assets/images/messenger.png") no-repeat center center;
 }
 
 .contact-btn {
@@ -387,3 +436,48 @@ nav {
     }
   }
 }
+
+.navigation-expended {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  .nav-menu_exp--list {
+    margin-top: 60px;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: #ffffff;
+    box-sizing: border-box;
+    box-shadow: $shadow-default;
+
+    ul {
+      padding-inline-start: 10%;
+      padding-top: 30px;
+
+      li {
+        list-style: none;
+        margin-bottom: 15px;
+
+        a {
+          text-decoration: none;
+          font-family: $_font-family-poppins;
+          color: black;
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+}
+
+.animation-from-left-to-right {
+  animation: ease-in-out from-left-to-right 0.4s forwards;
+}
+
+@import 'responsive';
+

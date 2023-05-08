@@ -1,0 +1,6 @@
+//make responsive for navigation bar
+@media (max-width: 768px) {
+  nav {
+    @include navForMobile();
+  }
+}

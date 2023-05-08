@@ -40,8 +40,9 @@ function isElementInViewport(el) {
 window.addEventListener('scroll', checkFadeIn); //!Fall in animation
 
 //!Navbar logic
+var navbar = document.querySelector(".navbar-top");
 window.addEventListener("scroll", function () {
-    var navbar = document.querySelector(".navbar-top");
+    //!If is mobile= document.querySelector(
     navbar.classList.toggle("scrolled", window.scrollY > 0);
 });
 
@@ -83,4 +84,17 @@ experienceViewList.forEach((element, index) => {
         openAndHideOther(pageList[index]);
         console.log(index);
     })
+})
+
+//navi
+let navButtonExpand = document.querySelector(".nav-expand-button")
+navButtonExpand.addEventListener("click", () => {
+    let elementNav = document.querySelector(".navigation-expended");
+    if (elementNav.style.display == "none") {
+        elementNav.style.display = "block";
+        navbar.classList.add("scrolled");
+    } else {
+        elementNav.style.display = "none"
+        navbar.classList.removed("scrolled");
+    }
 })
